@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>浮动</title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.left,.right{
+				width: 200px;
+				height: 600px;
+				float: left;
+				background-color: coral;
+			}
+			.center{
+				width: calc(100% - 400px);
+				height: 600px;
+				float: left;
+				background-color: antiquewhite;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="left"></div>
+			<div class="center"></div>
+			<div class="right"></div>
+		</div>
+
+	</body>
+</html>

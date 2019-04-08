@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		 <style>
+      * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        border: 0;
+      }
+      .slider-wraper {
+        overflow: hidden;
+        position: relative;
+        margin: 100px;
+        width: 500px;
+        height: 304px;
+      }
+
+      .slider-wraper ul {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 3500px;
+        height: 304px;
+
+        transform: translate(0, 0);
+      }
+      .slider-wraper li {
+        float: left;
+        box-sizing: border-box;
+        border: 1px solid #f00;
+        width: 500px;
+        height: 300px;
+      }
+    </style>
+	</head>
+	<body>
+		<div class="slider-wraper">
+      <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>1</li>
+      </ul>
+    </div>
+    <script>
+      const slider = document.querySelector(".slider-wraper ul");
+      const sliderChild = slider.querySelectorAll("li");
+      const chilrenLength = sliderChild.length;
+      const sliderWidth = chilrenLength * 500;
+      slider.style.width = `${sliderWidth}px`;
+
+      let timer = null;
+      let currentIndex = 1;
+	  
+      function sliderAnimate() {
+        timer = setTimeout(function() {
+          animate();
+          sliderAnimate();
+        }, 3000);
+      }
+
+      function animate() {
+        let xPos = currentIndex * -500;
+        slider.style.transform = `translate(${xPos}px, 0)`;
+        if (!currentIndex) {
+          slider.style.transition = `none`;
+        } else {
+          slider.style.transition = `all 600ms ease-out`;
+        }
+        currentIndex += 1;
+      }
+
+      slider.addEventListener(
+        "transitionend",
+        function() {
+          if (currentIndex >= chilrenLength) {
+            currentIndex = 0;
+            animate();
+          }
+        },
+        false
+      );
+
+      sliderAnimate();
+    </script>
+	</body>
+</html>

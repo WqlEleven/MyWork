@@ -1,0 +1,140 @@
+.tg_top1 {
+	height: 37px;
+	width: 1000px;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	background-color: rgb(241, 241, 241);
+	line-height: 37px;
+	padding: 0 10px;
+}
+
+.tg_top1 .tg_l span {
+	height: 23px;
+	border: 1px solid #ccc;
+	margin-right: 10px;
+	background-color: #fff;
+}
+.tg_top1 .tg_l img{
+	width: 14px;
+	height: 14px;
+	margin: 0 5px;
+	background-color: #fff;
+}
+.tg_top1 .tg_l .red {
+	height: 23px;
+	border: 1px solid red;
+	background-color: red;
+	color: #fff;
+}
+
+.tg_top1 .tg_r span {
+	margin-left: 10px;
+}
+
+.tg_top1 .tg_r span:nth-child(3),
+.tg_top1 .tg_r span:nth-child(4) {
+	height: 23px;
+	width: 46px;
+	display: block;
+	float: right;
+	border: 1px solid #ccc;
+	margin-top: 6px;
+	line-height: 23px;
+	text-align: center;
+}
+
+.tg_top1 .tg_r span:nth-child(3) {
+	background-color: #fff;
+	margin-left: -1px;
+}
+
+
+
+.tg_top2 {
+	height: 37px;
+	width: 1000px;
+	border-bottom: 1px solid #ccc;
+	background-color: rgb(249, 249, 249);
+	line-height: 37px;
+	padding: 0 10px;
+}
+
+.tg_top2 span {
+	display: block;
+	float: left;
+	margin-right: 20px;
+}
+
+.tg_top2 span:last-child {
+	float: right;
+}
+
+.tg_top2 span:last-child .lala {
+	height: 23px;
+	width: 110px;
+	border: 1px solid #ccc;
+	display: block;
+	float: left;
+	margin-top: 7px;
+	padding-left: 4px;
+}
+
+.tg_top2 span:last-child .haha {
+	height: 23px;
+	width: 50px;
+	background-color: rgb(241, 241, 241);
+	border: 1px solid #ccc;
+	float: left;
+	margin-top: 7px;
+}
+
+
+.tg_list {
+	width: 1000px;
+	padding: 0 10px;
+}
+.tg_list .li {
+	height: 400px;
+	width: 220px;
+	margin-right: 40px;
+	margin-top: 25px;
+	display: inline-block;
+}
+.tg_list .li hover{
+	 border-color: #e9e9e9;
+   box-shadow: 0 0 2px 2px #f8f8f8;
+}
+.tg_list .li img{
+	width: 100%;
+}
+.tg_list .li:nth-child(4n){
+	margin-right: 0px;
+}
+.tg_list p {
+	margin-bottom: 5px;
+}
+
+.tg_list .li p .zy {
+	width: 30px;
+	height: 16px;
+	line-height: 16px;
+	display: block;
+	float: left;
+	background-color: red;
+	color: #fff;
+	border-radius: 5px;
+	text-align: center;
+	margin-right: 10px;
+}
+
+.tg_list .li p .ss {
+	height: 14px;
+	line-height: 14px;
+	display: block;
+	float: left;
+	border: 1px solid red;
+	text-align: center;
+	border-radius: 5px;
+	color: red;
+
+}
