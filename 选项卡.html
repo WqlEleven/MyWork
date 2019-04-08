@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>选项卡</title>
+	<style>
+		*{
+			margin: 0;
+			padding:0;
+		}
+		.tab-nav{
+			overflow: hidden;
+		}
+		.tab-nav .item{
+			float: left;
+			border: 1px solid #ddd;
+			width: 100px;
+			height: 30px;
+			line-height: 30px;
+			text-align: center
+		}
+
+		.tab-nav .active{
+			color: #f00;
+		}
+
+		.tab-content .item{display: none;}
+		.tab-content .active{display: block;}
+		
+	</style>
+
+</head>
+<body>
+	<div class="tab-nav">
+		<div class="item">1</div>
+		<div class="item">2</div>
+		<div class="item">3</div>
+	</div>
+	<div class="tab-content">
+		<div class="item">1-content</div>
+		<div class="item">2-content</div>
+		<div class="item">3-content</div>
+	</div>
+		<script type="text/javascript">
+		// API :  eventType, tabNavNode, tabContentNode, animation
+		// 功能 : 事件、内容切换
+	
+			// classname = 'item active' => ['item', 'active']
+	
+		function setClass(node, className){
+			if(!node){
+				return;
+			}
+	
+			let newClass = [];
+			const _class = node.className.split(' ');
+			let flag = false;
+			_class.forEach((item) => {
+				if(className !== item){
+					newClass.push(item);
+				} else {
+					flag = true;
+				}
+			});
+	
+			if(!flag){
+				newClass.push(className);
+			} 
+			node.className = newClass.join(' ');
+		}
+	
+		function Tabs(options){
+			this.eventType = options.eventType || 'click';
+			this.tabNavNode = options.tabNavNode;
+			this.defaultTab = options.defaultTab || 0;
+			this.tabContentNode = options.tabContentNode;
+			// 初始化方法
+			this.onEvent();
+		}
+		Tabs.prototype.getNodeIndex = function(nodes){
+			let index;
+			for(let i=0; i<nodes.length; i++){
+				if(nodes[i].className.indexOf('active') !== -1){
+					index = i;
+				}
+			}
+			return index;
+		}
+		Tabs.prototype.onEvent = function(){
+			const self = this;
+			const defaultTab = this.defaultTab;
+			const tabNav = document.querySelector(this.tabNavNode);
+			const tabContent = document.querySelector(this.tabContentNode);
+			// 缓存node列表
+			const tabNavItems = tabNav.querySelectorAll('.item');
+			const tabContentItems = tabContent.querySelectorAll('.item');
+			// 默认需要切换的class
+			const activeClassName = 'active';
+	
+			tabNav.addEventListener(this.eventType, function(event){
+				const node = event.target;
+				if(node.nodeName !== 'DIV' || node.className.indexOf('item') === -1){
+					return;
+				}
+	
+				// 1.添加选中项的状态 2.切换内容
+				// node.addclass, removeclass
+				setClass(tabNav.querySelector('.' + activeClassName), activeClassName);
+				setClass(node, activeClassName);
+	
+				const index = self.getNodeIndex(tabNavItems);
+				//改变content的classname
+				setClass(tabContent.querySelector('.' + activeClassName), activeClassName);
+				setClass(tabContentItems[index], activeClassName);
+			}, false);
+	
+	
+			setClass(tabNavItems[defaultTab], activeClassName);
+			setClass(tabContentItems[defaultTab], activeClassName);
+		}
+	
+		const options = {
+			defaultTab: 2,
+			tabNavNode: '.tab-nav',
+			tabContentNode: '.tab-content'
+		}
+		new Tabs(options);
+	</script>
+</body>
+</html>
+<!-- 
+ 1.获取dom节点，放在一个对象中option
+ 2.创建函数Tab，option作为参数
+	2.1在函数中接受数据，初始化方法this.onEvent()
+3.Tab.prototype.onEvent = function () {}
+	3.1给节点添加事件 
+-->

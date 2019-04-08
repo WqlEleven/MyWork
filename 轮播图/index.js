@@ -9,17 +9,7 @@ var index = 0;
 var num;
 
 function move(obj, end) {
-	clearInterval(num);
-	num = setInterval(function() {
-		var start = obj.offsetLeft;
-		var speed = (end - start) / 10;
-		if (start > end) {
-			speed = Math.floor(speed);
-		} else {
-			speed = Math.ceil(speed);
-		}
-		obj.style.left = start + speed + 'px';
-	}, 10)
+	 =
 }
 
 btnRight.onclick = function() {
@@ -73,7 +63,7 @@ var flag = setInterval(function() {
 }, 3000);
 
 
-// 鼠标进入banner，停止轮播
+// 鼠标进入banner，停止轮播 
 banner.onmouseenter = function() {
 	clearInterval(flag);
 };

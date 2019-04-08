@@ -1,0 +1,68 @@
+* {
+  margin: 0;
+  padding: 0;
+	list-style: none;
+	text-decoration: none;
+}
+.clearfix::after {
+  content: '';
+  clear:both;
+  display: block;
+  visibility: hidden;
+  height: 0;
+}
+.clearfix {
+  *zoom: 1;
+}
+
+/* 轮播模块居中 */
+.banner {
+  margin:0 auto;
+  width: 790px;
+  height: 340px;
+  position: relative;
+  overflow: hidden;
+}
+/* 轮播项 */
+.banner .content ul {
+  width: 6320px;
+  position: absolute;
+  top:0;
+}
+.banner .content li {
+  float: left;
+}
+/* 设置左右按钮样式 */
+.banner .btn {
+  margin-top: -25px;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top:50%;
+  background: rgba(0,0,0,.3);
+  color:#fff;
+  font: 50px/50px '宋体';
+  text-align: center;
+}
+.banner .btnRight {
+  right: 0;
+}
+/* 小点 */
+.banner .control {
+  margin-left: -82px;
+  position: absolute;
+  bottom: 20px;
+  left:50%;
+  
+}
+.banner .control a {
+  margin-left:10px;
+  width: 15px;
+  height: 15px;
+  float: left;
+  background: #fff;
+  border-radius: 50%;
+}
+.banner .control a.active {
+  background: red;
+}
