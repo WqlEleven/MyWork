@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				font-size: 10px;
+				text-align: center;
+			}
+			#left{
+				float: left;
+			}
+			#right{
+				float: left;
+				margin-left: -2px;
+				overflow:scroll; 
+				width:256px; 
+				height:180px;
+				position: relative;
+			}
+			thead{
+				position:absolute;
+				top: 0;
+				left: 0;
+			}
+			.tbody tr{
+				height: 28px;
+			}
+			.tbody td{			
+				width: 34px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="left">
+			<table class="l_top" border="1" width="80" height="50"  cellspacing="0">
+				<tr>
+					<td colspan="2"></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+				</tr>
+			</table>
+			<table class="l_bottom" border="1" width="80" height="200"  cellspacing="0" >
+				<tr>
+					<td>1</td>
+				</tr>
+				<tr>
+					<td>2</td>
+				</tr>
+				<tr>
+					<td>3</td>
+				</tr>
+				<tr>
+					<td>4</td>
+				</tr>
+				<tr>
+					<td>5</td>
+				</tr>
+				<tr>
+					<td>6</td>
+				</tr>
+			</table>
+		</div>
+		<div id="right">
+			<table class="r_top" class="l_top" border="1" width="400"  cellspacing="0">
+				<thead>
+					<tr>
+						<td colspan="4">1</td>
+						<td colspan="2" rowspan="3">2</td>
+						<td colspan="2" rowspan="3">3</td>
+						<td colspan="2" rowspan="3">4</td>
+						<td colspan="2" rowspan="3">5</td>
+					</tr>
+					<tr>
+						<td colspan="2">1</td>
+						<td colspan="2" rowspan="2">2</td>
+					</tr>
+					<tr>
+						<td>1</td>
+						<td>2</td>
+					</tr>
+				</thead>
+				<tbody class="tbody">
+					<tr>
+						<td colspan="4"></td>
+						<td colspan="2"></td>
+						<td colspan="2"></td>
+						<td colspan="2"></td>
+						<td colspan="2"></td>
+					</tr>
+					<tr>
+						<td colspan="4"></td>
+						<td colspan="2"></td>
+						<td colspan="2"></td>
+						<td colspan="2"></td>
+						<td colspan="2"></td>
+					</tr>
+					<tr>
+						<td colspan="4"></td>
+						<td colspan="2"></td>
+						<td colspan="2"></td>
+						<td colspan="2"></td>
+						<td colspan="2"></td>
+					</tr>
+					<tr>
+						<td colspan="4"></td>
+						<td colspan="2"></td>
+						<td colspan="2"></td>
+						<td colspan="2"></td>
+						<td colspan="2"></td>
+					</tr>
+					<tr>
+						<td colspan="4"></td>
+						<td colspan="2"></td>
+						<td colspan="2"></td>
+						<td colspan="2"></td>
+						<td colspan="2"></td>
+					</tr>
+					<tr>
+						<td colspan="4"></td>
+						<td colspan="2"></td>
+						<td colspan="2"></td>
+						<td colspan="2"></td>
+						<td colspan="2"></td>
+					</tr>
+					<tr>
+						<td colspan="4"></td>
+						<td colspan="2"></td>
+						<td colspan="2"></td>
+						<td colspan="2"></td>
+						<td colspan="2"></td>
+					</tr>
+				</tbody>
+				
+			</table>
+			
+		</div>
+	</body>
+</html>

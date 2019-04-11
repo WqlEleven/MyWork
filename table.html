@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			table {
+				width: 100%;
+				text-align: center;
+				border-collapse: collapse;
+				border-spacing: 0;
+			}
+
+			.container {
+				width: 600px;
+				height: 500px;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			#left_div {
+				width: 80px;
+				float: left;
+			}
+
+			#left_div1 {
+				width: 100%;
+			}
+
+			#left_div2 {
+				width: 100%;
+				height: 250px;
+				overflow: hidden;
+			}
+
+			#left_table2 {
+				margin-bottom: 4px;
+			}
+
+			#right_div {
+				float: left;
+				width: 240px;
+			}
+
+			#right_div1 {
+				width: 100%;
+				overflow: hidden;
+
+			}
+
+			#right_div2 {
+				width: 100%;
+				height: 250px;
+				overflow: scroll;
+			}
+
+			#right_table1 {
+				width: 320px;
+			}
+
+			#right_table2 {
+				width: 320px;
+				overflow: auto;
+			}
+
+			th,
+			td {
+				height: 50px;
+				width: 80px;
+				line-height: 50px;
+				overflow: hidden;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div id="left_div">
+				<div id="left_div1">
+					<table>
+						<tr>
+							<th>ID</th>
+						</tr>
+					</table>
+				</div>
+				<div id="left_div2">
+					<table id="left_table2">
+						<tr>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>2</td>
+						</tr>
+						<tr>
+							<td>3</td>
+						</tr>
+						<tr>
+							<td>4</td>
+						</tr>
+						<tr>
+							<td>5</td>
+						</tr>
+						<tr>
+							<td>6</td>
+						</tr>
+						<tr>
+							<td>7</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div id="right_div">
+				<div id="right_div1">
+					<table id="right_table1">
+						<tr>
+							<th>1</th>
+							<th>2</th>
+							<th>3</th>
+							<th>4</th>
+						</tr>
+					</table>
+				</div>
+				<div id="right_div2" onscroll="aa()">
+					<table id="right_table2">
+						<tr>
+							<td>1</td>
+							<td>2</td>
+							<td>3</td>
+							<td>4</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>2</td>
+							<td>3</td>
+							<td>4</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>2</td>
+							<td>3</td>
+							<td>4</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>2</td>
+							<td>3</td>
+							<td>4</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>2</td>
+							<td>3</td>
+							<td>4</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>2</td>
+							<td>3</td>
+							<td>4</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>2</td>
+							<td>3</td>
+							<td>4</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+		<script>
+			var right_table2 = document.getElementById('right_table2');
+			right_table2.addEventListener("scrollTop", function() {
+				var top = document.getElementById("right_table2").scrollTop;
+				var left = document.getElementById("right_table2").scrollLeft;
+				document.getElementById("left_table2").scrollTop = top;
+				document.getElementById("right_table1").scrollLeft = left;
+			});
+		</script>
+	</body>
+</html>
