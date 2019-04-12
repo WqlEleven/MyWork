@@ -12,7 +12,6 @@
 			table {
 				width: 100%;
 				text-align: center;
-				border-collapse: collapse;
 				border-spacing: 0;
 			}
 
@@ -35,9 +34,12 @@
 			#left_div2 {
 				width: 100%;
 				height: 250px;
-				overflow: hidden;
+				overflow-y: scroll;
 			}
 
+			#left_div2::-webkit-scrollbar {
+				display: none;
+			}
 			#left_table2 {
 				margin-bottom: 4px;
 			}
@@ -49,8 +51,10 @@
 
 			#right_div1 {
 				width: 100%;
-				overflow: hidden;
-
+				overflow-x: scroll;
+			}
+			#right_div1::-webkit-scrollbar {
+				display: none;
 			}
 
 			#right_div2 {
@@ -65,7 +69,6 @@
 
 			#right_table2 {
 				width: 320px;
-				overflow: auto;
 			}
 
 			th,
@@ -73,7 +76,6 @@
 				height: 50px;
 				width: 80px;
 				line-height: 50px;
-				overflow: hidden;
 				text-align: center;
 			}
 		</style>
@@ -125,7 +127,7 @@
 						</tr>
 					</table>
 				</div>
-				<div id="right_div2" onscroll="aa()">
+				<div id="right_div2">
 					<table id="right_table2">
 						<tr>
 							<td>1</td>
@@ -134,10 +136,10 @@
 							<td>4</td>
 						</tr>
 						<tr>
-							<td>1</td>
-							<td>2</td>
-							<td>3</td>
-							<td>4</td>
+							<td>5</td>
+							<td>6</td>
+							<td>7</td>
+							<td>8</td>
 						</tr>
 						<tr>
 							<td>1</td>
@@ -146,10 +148,10 @@
 							<td>4</td>
 						</tr>
 						<tr>
-							<td>1</td>
-							<td>2</td>
-							<td>3</td>
-							<td>4</td>
+							<td>5</td>
+							<td>6</td>
+							<td>7</td>
+							<td>8</td>
 						</tr>
 						<tr>
 							<td>1</td>
@@ -158,10 +160,10 @@
 							<td>4</td>
 						</tr>
 						<tr>
-							<td>1</td>
-							<td>2</td>
-							<td>3</td>
-							<td>4</td>
+							<td>5</td>
+							<td>6</td>
+							<td>7</td>
+							<td>8</td>
 						</tr>
 						<tr>
 							<td>1</td>
@@ -174,13 +176,19 @@
 			</div>
 		</div>
 		<script>
-			var right_table2 = document.getElementById('right_table2');
-			right_table2.addEventListener("scrollTop", function() {
-				var top = document.getElementById("right_table2").scrollTop;
-				var left = document.getElementById("right_table2").scrollLeft;
-				document.getElementById("left_table2").scrollTop = top;
-				document.getElementById("right_table1").scrollLeft = left;
+			var right_div2 = document.getElementById('right_div2');
+			right_div2.addEventListener("scroll", function() {
+				var top = this.scrollTop;
+				var left = this.scrollLeft;
+				document.getElementById("left_div2").scrollTop = top;
+				document.getElementById("right_div1").scrollLeft = left;
+				// console.log(leftTable.style.scrollTop)
 			});
+			var left_div2 = document.getElementById("left_div2");
+			left_div2.addEventListener('scroll',function(){
+				var top = this.scrollTop;
+				document.getElementById("right_div2").scrollTop = top;
+			})
 		</script>
 	</body>
 </html>
