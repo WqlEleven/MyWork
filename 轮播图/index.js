@@ -9,7 +9,17 @@ var index = 0;
 var num;
 
 function move(obj, end) {
-	 =
+	clearInterval(num);
+	num = setInterval(function() {
+		var start = obj.offsetLeft;
+		var speed = (end - start) / 10;
+		if (start > end) {
+			speed = Math.floor(speed);
+		} else {
+			speed = Math.ceil(speed);
+		}
+		obj.style.left = start + speed + 'px';
+	}, 10)
 }
 
 btnRight.onclick = function() {
@@ -75,5 +85,3 @@ banner.onmouseleave = function() {
 	}, 3000);
 
 };
-
-

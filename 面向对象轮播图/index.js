@@ -12,6 +12,8 @@ function Carousel(options) {
 	this.num = options.num;
 	this.SetTimer = null;
 	this.eventType = options.eventType || 'click';
+	this.ulWidth = options.ulWidth || '-5530px';
+	this.liWidth = options.liWidth || 790;
 	this.left();
 	this.right();
 	this.changeNum();
@@ -39,14 +41,15 @@ Carousel.prototype.left = function() {
 	const btnRight = document.querySelector(this.btnRight)
 	const ul = document.querySelector(this.list)
 	const links = document.querySelectorAll(this.links)
+	const links_lenghth = links.length
 	btnLeft.addEventListener(_this.eventType, function() {
 		links[_this.index].className = '';
 		_this.index--;
 		if (_this.index < 0) {
-			ul.style.left = '-5530px'
-			_this.index = 6
+			ul.style.left = _this.ulWidth;
+			_this.index = links_lenghth -1;
 		}
-		let end = -_this.index * 790;
+		let end = -_this.index * _this.liWidth;
 		_this.move(ul, end);
 		links[_this.index].className = 'active';
 	})
@@ -57,15 +60,16 @@ Carousel.prototype.right = function() {
 	const btnRight = document.querySelector(this.btnRight)
 	const ul = document.querySelector(this.list)
 	const links = document.querySelectorAll(this.links)
+	const links_lenghth = links.length
 	btnRight.addEventListener(_this.eventType, function() {
 		if (_this.index == 0) {
 			ul.style.left = 0 + 'px';
 		}
 		links[_this.index].className = '';
 		_this.index++;
-		let end = -_this.index * 790;
+		let end = -_this.index * _this.liWidth;
 		_this.move(ul, end);
-		if (_this.index == 7) {
+		if (_this.index == links_lenghth) {
 			_this.index = 0;
 		}
 		links[_this.index].className = 'active';
@@ -90,7 +94,7 @@ Carousel.prototype.controlClick = function() {
 		if (node.nodeName == 'A') {
 			links[_this.index].className = '';
 			_this.index = node.num;
-			const end = _this.index * -790;
+			const end = _this.index * -_this.liWidth;
 			_this.move(ul, end)
 			links[_this.index].className = 'active';
 		}
@@ -99,9 +103,24 @@ Carousel.prototype.controlClick = function() {
 //自动轮播
 Carousel.prototype.autoCarousel = function() {
 	const _this = this;
-	_this.SetTimer = setInterval(function() {
-		_this.right();
-	}, 3000)
+	const btnRight = document.querySelector(this.btnRight)
+	const ul = document.querySelector(this.list)
+	const links = document.querySelectorAll(this.links)
+	const links_lenghth = links.length
+	_this.SetTimer = setInterval(function() {	
+		if (_this.index == 0) {
+			ul.style.left = 0 + 'px';
+		}
+		links[_this.index].className = '';
+		_this.index++;
+		_this.index = _this.index-1;
+		let end = -_this.index * _this.liWidth;
+		_this.move(ul, end);
+		if (_this.index == links_lenghth) {
+			_this.index = 0;
+		}
+		links[_this.index].className = 'active';
+	}, 3000)	
 }
 const options = {
 	banner: '.banner',
@@ -113,6 +132,8 @@ const options = {
 	control: '.control',
 	links: '.control a',
 	num: '',
-	index: 0
+	index: 0,
+	ulWidth:'-5530px',
+	liWidth:790
 }
 new Carousel(options);
